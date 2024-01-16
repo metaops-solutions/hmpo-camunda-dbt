@@ -1,7 +1,8 @@
 version: 2
 
 sources:
-  - name: public
+  - name: camunda_history
+    schema: public
     tables:
       - name: activity_instance_startedafter
         description: "Activity instances started but not finished up to the last sync time"
@@ -183,6 +184,9 @@ sources:
             description: "The provided delete reason in case the process instance was canceled during execution."
           - name: tenantid
             description: "The tenant id of the process instance."
+  - name: application_raw_data
+    schema: public
+    tables:
       - name: death_registration_record
         description: "Process instances finished up to the last sync time"
         columns:
