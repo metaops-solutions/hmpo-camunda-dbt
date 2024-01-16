@@ -5,7 +5,7 @@ sources:
     tables:
       - name: activity_instance_startedafter
         description: "Activity instances started but not finished up to the last sync time"
-        columns: 
+        columns:
           - name: id
             description: "The id of the activity instance"
             tests:
@@ -52,7 +52,7 @@ sources:
             description: "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance."
       - name: activity_instance_finishedafter
         description: "Activity instances finished up to the last sync time"
-        columns: 
+        columns:
           - name: id
             description: "The id of the activity instance"
             tests:
@@ -142,7 +142,7 @@ sources:
             description: "The tenant id of the process instance."
       - name: process_instance_finishedafter
         description: "Process instances finished up to the last sync time"
-        columns: 
+        columns:
           - name: id
             description: "The id of the process instance."
             tests:
@@ -183,7 +183,72 @@ sources:
             description: "The provided delete reason in case the process instance was canceled during execution."
           - name: tenantid
             description: "The tenant id of the process instance."
-
+      - name: death_registration_record
+        description: "Process instances finished up to the last sync time"
+        columns:
+          - name: id
+            description: "The id of the registration record."
+            tests:
+              - unique
+          - name: comment
+            description: ""
+          - name: ron_entry
+            description: ""
+          - name: created_at
+            description: ""
+          - name: deceased_id
+            description: ""
+          - name: entry_number
+            description: ""
+          - name: informant_id
+            description: ""
+          - name: mccd_case_id
+            description: ""
+          - name: register_number
+            description: ""
+          - name: registration_id
+            description: ""
+          - name: registration_date
+            description: ""
+          - name: informant_signature
+            description: ""
+          - name: owner_place_details
+            description: ""
+          - name: registered_manually
+            description: ""
+          - name: registrar_signature
+            description: ""
+          - name: registrar_designation
+            description: ""
+          - name: bilingual_registration
+            description: ""
+          - name: ind_rg_authority_given
+            description: ""
+          - name: declare_out_of_district
+            description: ""
+          - name: register_after_five_days
+            description: ""
+          - name: registration_place_details
+            description: ""
+          - name: on_rg_authority_text_required
+            description: ""
+          - name: registration_place_details_id
+            description: ""
+      - name: registered_place_of_death
+        description: "Process instances finished up to the last sync time"
+        columns:
+          - name: id
+            description: "The id of the place of death."
+            tests:
+              - unique
+          - name: address_id
+            description: ""
+          - name: place_of_death_type
+            description: ""
+          - name: length_of_stay_in_ce
+            description: ""
+          - name: place_of_death_type_code
+            description: ""
 
 
 
