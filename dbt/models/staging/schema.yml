@@ -1,0 +1,191 @@
+version: 2
+
+sources:
+  - name: public
+    tables:
+      - name: activity_instance_startedafter
+        description: "Activity instances started but not finished up to the last sync time"
+        columns: 
+          - name: id
+            description: "The id of the activity instance"
+            tests:
+              - unique
+          - name: taskid
+            description: "The id of the task that is associated to this activity instance. Is only set if the activity is a user task."
+          - name: endtime
+            description: "The time the instance ended. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: canceled
+            description: "If true, this activity instance is canceled."
+          - name: starttime   
+            description: "The time the instance was started. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: activityid
+            description: "The id of the activity that this object is an instance of."
+          - name: assignee
+            description: "The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task."
+          - name: tenantid
+            description: "The tenant id of the activity instance."
+          - name: executionid
+            description: "The id of the execution that executed this activity instance."
+          - name: removaltime
+            description: "The time after which the activity instance should be removed by the History Cleanup job. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: activityname
+            description: "The name of the activity that this object is an instance of."
+          - name: activitytype
+            description: "The type of the activity that this object is an instance of."
+          - name: completescope
+            description: "If true, this activity instance did complete a BPMN 2.0 scope."
+          - name: durationinmillis
+            description: "The time the instance took to finish (in milliseconds)."
+          - name: processinstanceid
+            description: "The id of the process instance that this activity instance belongs to."
+          - name: processdefinitionid
+            description: "The id of the process definition that this activity instance belongs to."
+          - name: processdefinitionkey
+            description: "The key of the process definition that this activity instance belongs to."
+          - name: rootprocessinstanceid
+            description: "The process instance id of the root process instance that initiated the process containing this activity instance."
+          - name: calledprocessinstanceid
+            description: "The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance."
+          - name: calledcaseinstanceId
+            description: "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance."
+          - name: parentactivityinstanceid
+            description: "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance."
+      - name: activity_instance_finishedafter
+        description: "Activity instances finished up to the last sync time"
+        columns: 
+          - name: id
+            description: "The id of the activity instance"
+            tests:
+              - unique
+          - name: taskid
+            description: "The id of the task that is associated to this activity instance. Is only set if the activity is a user task."
+          - name: endtime
+            description: "The time the instance ended. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: canceled
+            description: "If true, this activity instance is canceled."
+          - name: starttime   
+            description: "The time the instance was started. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: activityid
+            description: "The id of the activity that this object is an instance of."
+          - name: assignee
+            description: "The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task."
+          - name: tenantid
+            description: "The tenant id of the activity instance."
+          - name: executionid
+            description: "The id of the execution that executed this activity instance."
+          - name: removaltime
+            description: "The time after which the activity instance should be removed by the History Cleanup job. Default format* yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: activityname
+            description: "The name of the activity that this object is an instance of."
+          - name: activitytype
+            description: "The type of the activity that this object is an instance of."
+          - name: completescope
+            description: "If true, this activity instance did complete a BPMN 2.0 scope."
+          - name: durationinmillis
+            description: "The time the instance took to finish (in milliseconds)."
+          - name: processinstanceid
+            description: "The id of the process instance that this activity instance belongs to."
+          - name: processdefinitionid
+            description: "The id of the process definition that this activity instance belongs to."
+          - name: processdefinitionkey
+            description: "The key of the process definition that this activity instance belongs to."
+          - name: rootprocessinstanceid
+            description: "The process instance id of the root process instance that initiated the process containing this activity instance."
+          - name: calledprocessinstanceid
+            description: "The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance."
+          - name: calledcaseinstanceId
+            description: "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance."
+          - name: parentactivityinstanceid
+            description: "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance."
+      - name: process_instance_startedafter
+        description: "Process instances started but not finished up to the last sync time"
+        columns: 
+          - name: id
+            description: "The id of the process instance."
+            tests:
+              - unique
+          - name: state
+            description: "last state of the process instance, possible values are: ACTIVE - running process instance, SUSPENDED - suspended process instances, COMPLETED - completed through normal end event, EXTERNALLY_TERMINATED - terminated externally, for instance through REST API, INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event"
+          - name: endtime
+            description: "The time the instance ended. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: starttime
+            description: "The time the instance was started. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: businesskey
+            description: "The business key of the process instance."
+          - name: removaltime
+            description: "The time after which the instance should be removed by the History Cleanup job. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: startactivityid
+            description: "The id of the initial activity that was executed (e.g., a start event)."
+          - name: durationinmillis
+            description: "The time the instance took to finish (in milliseconds)."
+          - name: processdefinitionid
+            description: "The id of the process definition that this process instance belongs to."
+          - name: processdefinitionkey
+            description: "The key of the process definition that this process instance belongs to."
+          - name: processdefinitionname
+            description: "The name of the process definition that this process instance belongs to."
+          - name: rootprocessinstanceid
+            description: "The process instance id of the root process instance that initiated the process."
+          - name: superprocessinstanceid
+            description: "The id of the parent process instance, if it exists."
+          - name: supercaseinstanceid
+            description: "The id of the parent case instance, if it exists."
+          - name: caseinstanceid
+            description: "The id of the parent case instance, if it exists."
+          - name: processdefinitionversion
+            description: "The version of the process definition that this process instance belongs to."
+          - name: startuserid
+            description: "The id of the user who started the process instance."
+          - name: deletereason
+            description: "The provided delete reason in case the process instance was canceled during execution."
+          - name: tenantid
+            description: "The tenant id of the process instance."
+      - name: process_instance_finishedafter
+        description: "Process instances finished up to the last sync time"
+        columns: 
+          - name: id
+            description: "The id of the process instance."
+            tests:
+              - unique
+          - name: state
+            description: "last state of the process instance, possible values are: ACTIVE - running process instance, SUSPENDED - suspended process instances, COMPLETED - completed through normal end event, EXTERNALLY_TERMINATED - terminated externally, for instance through REST API, INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event"
+          - name: endtime
+            description: "The time the instance ended. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: starttime
+            description: "The time the instance was started. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: businesskey
+            description: "The business key of the process instance."
+          - name: removaltime
+            description: "The time after which the instance should be removed by the History Cleanup job. Default format yyyy-MM-dd'T'HH:mm:ss.SSSZ."
+          - name: startactivityid
+            description: "The id of the initial activity that was executed (e.g., a start event)."
+          - name: durationinmillis
+            description: "The time the instance took to finish (in milliseconds)."
+          - name: processdefinitionid
+            description: "The id of the process definition that this process instance belongs to."
+          - name: processdefinitionkey
+            description: "The key of the process definition that this process instance belongs to."
+          - name: processdefinitionname
+            description: "The name of the process definition that this process instance belongs to."
+          - name: rootprocessinstanceid
+            description: "The process instance id of the root process instance that initiated the process."
+          - name: superprocessinstanceid
+            description: "The id of the parent process instance, if it exists."
+          - name: supercaseinstanceid
+            description: "The id of the parent case instance, if it exists."
+          - name: caseinstanceid
+            description: "The id of the parent case instance, if it exists."
+          - name: processdefinitionversion
+            description: "The version of the process definition that this process instance belongs to."
+          - name: startuserid
+            description: "The id of the user who started the process instance."
+          - name: deletereason
+            description: "The provided delete reason in case the process instance was canceled during execution."
+          - name: tenantid
+            description: "The tenant id of the process instance."
+
+
+
+
+
+
