@@ -188,7 +188,7 @@ sources:
     schema: public
     tables:
       - name: death_registration_record
-        description: "Process instances finished up to the last sync time"
+        description: "Death Registration Records"
         columns:
           - name: id
             description: "The id of the registration record."
@@ -239,7 +239,7 @@ sources:
           - name: registration_place_details_id
             description: ""
       - name: registered_place_of_death
-        description: "Process instances finished up to the last sync time"
+        description: "Places for death registration"
         columns:
           - name: id
             description: "The id of the place of death."
