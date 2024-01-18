@@ -12,7 +12,6 @@ SELECT
     registration_date as registrationdate,
     owner_place_details as ownerplacedetails,
     registered_manually as registeredmanually,
-    registrar_signature as registrarsignature,
     registrar_designation as registrardesignation,
     bilingual_registration as bilingualregistration,
     ind_rg_authority_given as indrgauthoritygiven,
