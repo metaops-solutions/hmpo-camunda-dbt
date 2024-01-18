@@ -2,6 +2,7 @@ SELECT
     processes.id,
     processes.starttime,
     processes.endtime,
+    (processes.endtime - processes.starttime) as duration,
     processes.state,
     processes.processdefinitionname,
     death_registration_records.district,

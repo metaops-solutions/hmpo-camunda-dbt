@@ -2,6 +2,7 @@ SELECT
     activities.id,
     activities.starttime,
     activities.endtime,
+    (activities.endtime - activities.starttime) as duration,
     activities.activityid,
     activities.activityname,
     processes.id as processes_id,
