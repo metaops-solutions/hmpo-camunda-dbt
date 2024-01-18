@@ -2,7 +2,7 @@ SELECT
     activities.id,
     activities.starttime,
     activities.endtime,
-    (activities.endtime - activities.starttime) as duration,
+    EXTRACT(EPOCH FROM (activities.endtime - activities.starttime)) as duration_seconds,
     activities.activityid,
     activities.activityname,
     processes.id as processes_id,

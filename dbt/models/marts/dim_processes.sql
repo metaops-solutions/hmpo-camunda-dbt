@@ -2,7 +2,7 @@ SELECT
     processes.id,
     processes.starttime,
     processes.endtime,
-    (processes.endtime - processes.starttime) as duration,
+    EXTRACT(EPOCH FROM (processes.endtime - processes.starttime)) as duration_seconds,
     processes.state,
     processes.processdefinitionname,
     death_registration_records.district,
