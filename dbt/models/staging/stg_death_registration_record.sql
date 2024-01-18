@@ -10,7 +10,6 @@ SELECT
     register_number as registernumber,
     registration_id as registrationid,
     registration_date as registrationdate,
-    informant_signature as informantsignature,
     owner_place_details as ownerplacedetails,
     registered_manually as registeredmanually,
     registrar_signature as registrarsignature,
