@@ -4,7 +4,7 @@ SELECT
     activities.endtime,
     activities.activityid,
     activities.activityname,
-    processes.id,
+    processes.id as processes_id,
     death_registration_records.district,
     place_of_death.type
 FROM {{ ref('fct_activities') }} as activities
